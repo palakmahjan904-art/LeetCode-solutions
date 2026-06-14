@@ -1,0 +1,44 @@
+// 🎯 Pattern: Fixed-Size Sliding Window (Vowel Counting)
+// 🔗 LeetCode Link: https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/
+// 📝 Summary: 'k' size ki continuous substring dhoodhni hai jisme maximum vowels (a, e, i, o, u) hon.
+// 💡 Logic: Naye character par check karo agar vowel hai toh vowelcount++, aur peeche chhootne wale (check - k) character par check karo agar vowel tha toh vowelcount--.
+// ⏱️ Complexity: O(n) Time | O(1) Space
+
+class Solution {
+public:
+     bool vowel(char ch)
+      {
+        return ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u';
+      }
+    int maxVowels(string s, int k) {
+      int n=s.length();
+
+      if(n<k)
+      {
+        return -1;
+      }  
+      
+         int vowelcount=0;
+      for(int i=0;i<k;i++)
+      {
+        if(vowel (s[i]))
+        {
+            vowelcount++;
+        }
+      }
+        int maxvowel=vowelcount;
+        for( int check=k;check<n;check++)
+        {
+          if(vowel(s[check]))
+          {
+            vowelcount++;
+          }
+          if(vowel(s[check -k]))
+          {
+            vowelcount--;
+          }
+          maxvowel=max(maxvowel,vowelcount);
+        }
+        return maxvowel;
+    }
+};

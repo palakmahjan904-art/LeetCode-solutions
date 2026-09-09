@@ -1,7 +1,6 @@
 # 🎯 LeetCode Solutions - Sliding Window Pattern
 
 Welcome to my repository! This project tracks my daily problem-solving journey on LeetCode. Currently, I am mastering the Sliding Window technique to optimize code efficiency and reduce time complexity from nested loops to linear time.
-
 ---
 
 ## 🚀 Fixed-Size Sliding Window Series

@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int minimumRecolors(string blocks, int k) {
+       int n=blocks.size();
+       if(n<k)
+       {
+        return -1;
+       }
+        int count=0; 
+        for(int i=0;i<k;i++){
+       if(blocks[i]=='W')
+       {
+         count++;
+       }
+    }
+     int mincount=count;
+     for(int check=k;check<n;check++)
+     {
+        if(blocks[check]=='W'){
+        count++;
+        }
+        if(blocks[check-k]=='W')
+        {
+            count--;
+        }
+        mincount=min(count,mincount);
+     }
+     return mincount;
+    }
+};
